@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
@@ -113,11 +111,53 @@ public class Manager : MonoBehaviour
             Debug.Log(pyramid);
 
         }
+        Debug.Log("===========================");
 
+        BuildPyramid(5);
+
+        Debug.Log("===========================");
+
+        BuildReversePyramid(3);
     }
 
     void BuildPyramid(int floor)
     {
+        // 입력한 floor에 맞춰서 피라미드 생성
+        // 입력한 floor라는 것은 바닥의 개수에 맞게 피라미드를 쌓으라는 뜻인가?
+        // 맨 껍데기가 floor가 되게 해야한다는 것인가?
+        // 몇 층을 입력하느냐에 따라 생성되게 하기
 
+        for (int i = 0; i < floor; i++)
+        {
+            string pyramid = "";
+            for (int x = 0; x < (floor - 1) - i; x++)
+            {
+                pyramid += "　";
+            }
+            for (int x = 0; x < (i * 2); x++)
+            {
+                pyramid += "ㅇ";
+            }
+            Debug.Log(pyramid);
+        }
     }
+
+    void BuildReversePyramid(int floor)
+    {
+
+        for (int i = 0; i < floor; i++)
+        {
+            string pyramid = "";
+            for (int x = 0; x < i; x++)
+            {
+                pyramid += "　";
+            }
+            for (int x = 0; x < (floor * 2 -1) - (i * 2); x++)
+            {
+                pyramid += "ㅇ";
+            }
+            Debug.Log(pyramid);
+        }
+    }
+
 }
